@@ -106,7 +106,7 @@ async function validateStoredDeployment<T extends Deployment>(
   merge?: boolean,
 ) {
   const { txHash } = stored;
-  if (txHash !== undefined) {
+  if (txHash !== undefined || txHash === "") {
     // If there is a deployment with txHash stored, we look its transaction up. If the
     // transaction is found, the deployment is reused.
     debug('found previous deployment', txHash);
